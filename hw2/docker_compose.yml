@@ -1,0 +1,31 @@
+services:
+  nifi:
+    container_name: nifi_container
+    image: apache/nifi:latest
+    ports:
+      - "8443:8443"
+    environment:
+      - NIFI_WEB_HTTP_PORT=8443
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=admin
+    volumes:
+      - ./nifi/conf:/opt/nifi/conf
+      - ./nifi/state:/data/nifi/state
+      - ./nifi/flowfile:/opt/nifi/flowfile_repository
+      - ./nifi/input_data:/data/nifi/input_data
+      - ./nifi/output_data:/data/nifi/output_data
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+    networks:
+      - nifi_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8443/nifi"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  nifi_network:
+    driver: bridge
