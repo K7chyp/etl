@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse
+    ports:
+      - "8123:8123"   # HTTP-интерфейс
+      - "9000:9000"   # TCP-порт для клиентов
+      - "9009:9009"   # межсерверное взаимодействие
+    volumes:
+      - ./data/clickhouse:/var/lib/clickhouse  # персистентное хранение данных
+    environment:
+      CLICKHOUSE_USER: admin
+      CLICKHOUSE_PASSWORD: secret
+      CLICKHOUSE_DB: default
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8123/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
