@@ -33,6 +33,10 @@ services:  # Верхний уровень: ключ "services"
   clickhouse:
     image: clickhouse/clickhouse-server:latest
     container_name: clickhouse
+    environment:
+      CLICKHOUSE_USER: admin
+      CLICKHOUSE_PASSWORD: secret
+      CLICKHOUSE_DB: default
     ports:
       - "8123:8123"
       - "9000:9000"
