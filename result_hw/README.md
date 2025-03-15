@@ -59,3 +59,17 @@ docker-compose up --build
 ## MongoDB
 ### support_tickets
 ![alt text](image-2.png)
+### user_sessions
+![alt text](image-3.png)
+## PostgreSQL
+### support_tickets
+![alt text](image-5.png)
+### user_sessions
+![alt text](image-4.png)
+## ClikHouse
+### user_activity_daily
+![alt text](image-6.png)
+### support_performance
+![alt text](image-8.png)
+### activity_tickets
+![alt text](image-7.png)
