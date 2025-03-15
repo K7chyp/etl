@@ -23,10 +23,10 @@ docker-compose up --build
 
 Система будет доступна через 2-3 минуты. По умолчанию используются порты:
 
-Airflow UI: http://localhost:8080
-PostgreSQL: 5432
-MongoDB: 27017
-ClickHouse: 8123
+- Airflow UI: http://localhost:8080
+- PostgreSQL: 5432
+- MongoDB: 27017
+- ClickHouse: 8123
 
 
 ### 🔄 Кастомные DAGи
