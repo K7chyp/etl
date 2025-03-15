@@ -51,11 +51,11 @@ docker-compose up --build
         device_usage_stats
         support_performance
 
-### 📸 Картинки
+# 📸 Картинки
 
 ## Airflow + Docker
 ![alt text](image-1.png)
 ![alt text](image.png)
 ## MongoDB
-# support_tickets
+### support_tickets
 ![alt text](image-2.png)
